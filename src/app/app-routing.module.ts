@@ -20,6 +20,7 @@ import { CommunicateNewComponent } from './communicate-new/communicate-new.compo
 import { OpportunityDetailsComponent } from './opportunity-details/opportunity-details.component';
 import { AccountNewComponent } from './account-new/account-new.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
+import { ReportComponent } from './reports/report/report.component';
 
 
 const routes: Routes = [
@@ -41,7 +42,8 @@ const routes: Routes = [
   { path: 'newcommunicate', component: CommunicateNewComponent, canActivate: [AuthGuard] },
   { path: 'opportunity/:id', component: OpportunityDetailsComponent, canActivate: [AuthGuard] },
   { path: 'newaccount', component: AccountNewComponent, canActivate: [AuthGuard] },
-  { path: 'account/:id', component: AccountDetailsComponent, canActivate: [AuthGuard] }
+  { path: 'account/:id', component: AccountDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'reports', component: ReportComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

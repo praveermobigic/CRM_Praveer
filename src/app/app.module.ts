@@ -42,6 +42,9 @@ import { DashboardMostTimeComponent } from './dashboard-most-time/dashboard-most
 import { DashboardActiveRequestComponent } from './dashboard-active-request/dashboard-active-request.component';
 import { DashboardAllConversationComponent } from './dashboard-all-conversation/dashboard-all-conversation.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { ReportComponent } from './reports/report/report.component';
+import { ReportHeadComponent } from './reports/report-head/report-head.component';
+import { ReportDetailComponent } from './reports/report-detail/report-detail.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -76,7 +79,10 @@ export function tokenGetter() {
     DashboardMostTimeComponent,
     DashboardActiveRequestComponent,
     DashboardAllConversationComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    ReportComponent,
+    ReportHeadComponent,
+    ReportDetailComponent
   ],
   imports: [
     BrowserModule,
