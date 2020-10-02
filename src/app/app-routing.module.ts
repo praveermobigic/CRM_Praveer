@@ -21,6 +21,7 @@ import { OpportunityDetailsComponent } from './opportunity-details/opportunity-d
 import { AccountNewComponent } from './account-new/account-new.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { ReportComponent } from './reports/report/report.component';
+import { AcDetailsComponent } from './dashboard-all-conversation/ac-details/ac-details.component';
 
 
 const routes: Routes = [
@@ -43,7 +44,9 @@ const routes: Routes = [
   { path: 'opportunity/:id', component: OpportunityDetailsComponent, canActivate: [AuthGuard] },
   { path: 'newaccount', component: AccountNewComponent, canActivate: [AuthGuard] },
   { path: 'account/:id', component: AccountDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'reports', component: ReportComponent, canActivate: [AuthGuard] }
+  { path: 'reports', component: ReportComponent, canActivate: [AuthGuard] },
+  { path: 'ac-details', component: AcDetailsComponent, canActivate: [AuthGuard] },
+
 ];
 
 @NgModule({

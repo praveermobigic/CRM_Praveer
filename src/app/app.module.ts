@@ -45,6 +45,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { ReportComponent } from './reports/report/report.component';
 import { ReportHeadComponent } from './reports/report-head/report-head.component';
 import { ReportDetailComponent } from './reports/report-detail/report-detail.component';
+import { AcDetailsComponent } from './dashboard-all-conversation/ac-details/ac-details.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -82,7 +83,8 @@ export function tokenGetter() {
     UserLoginComponent,
     ReportComponent,
     ReportHeadComponent,
-    ReportDetailComponent
+    ReportDetailComponent,
+    AcDetailsComponent
   ],
   imports: [
     BrowserModule,
