@@ -61,14 +61,26 @@ export class DashboardAllConversationComponent implements OnInit {
 
   onSelect(data: any): void {
 
+    // console.log(data);
+    // console.log(typeof(data));
+
     var deptId: any;
     
-    this.single.forEach(function (a) {
-      if (a.name == data.name) {
-        deptId = a.id;
-      }
-
-    });
+    if(typeof(data) == "string"){
+      this.single.forEach(function(a) {
+        if(a.name == data){
+          deptId = a.id;
+        }
+      });
+    }
+    else{
+      this.single.forEach(function (a) {
+        if (a.name == data.name) {
+          deptId = a.id;
+        }
+  
+      });
+    }
 
     this.router.navigate(['../ac-details' , {id: deptId}], { relativeTo: this.route });
 

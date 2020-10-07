@@ -12,43 +12,24 @@ export class HeaderComponent implements OnInit {
 
 
   loggedinUser: string = localStorage.getItem('loggedinuser') || "";
+  isAdmin: string = localStorage.getItem('isAdmin') || "";
   constructor(private authService: AuthService, private router: Router, private utilityService: UtilityService) {  }
 
 
-  isAdmin: any;
-
-  adminArray = [
-    { id: "1", title: "Nav1", url: "url1", admin: "true"},
-    { id: "2", title: "Nav2", url: "url2", admin: "true"},
-    { id: "3", title: "Nav3", url: "url3", admin: "true"},
-    { id: "4", title: "Nav3", url: "url4", admin: "true"},
-    { id: "5", title: "Nav4", url: "url5", admin: "true"},
-    { id: "6", title: "Nav5", url: "url6", admin: "false"},
-    { id: "7", title: "Nav5", url: "url7", admin: "false"}
+  navArray = [
+    { title: "Home", url: "/dashboard", type: "1", icon: "dashboard"},
+    { title: "Accounts", url: "/accounts", type: "1", icon: "receipt"},
+    { title: "Contacts", url: "/contacts", type: "1", icon: "contacts"},
+    { title: "Requests", url: "/loanapplications", type: "1", icon: " move_to_inbox"},
+    { title: "Scripts", url: "/scripts", type: "1", icon: "wysiwyg"},
+    { title: "Communicate", url: "/communicates", type: "1", icon: "textsms"},
+    { title: "Reports", url: "/reports", type: "1", icon: "assessment"}
   ];
-
-  userArray: any;
 
   ngOnInit() {
 
-    this.isAdmin = true;
-
-    if(!this.isAdmin){
-      this.userArray = this.getUserArray();
-    }
-
   }
-  getUserArray(){
-
-    var tempArray = [];
-    this.adminArray.forEach(function (a) {
-      if (a.admin === "false"){
-        tempArray.push(a);
-      }
-    });
-
-    return tempArray;
-  }
+  
 
   logout(event){
     this.authService.logout();
