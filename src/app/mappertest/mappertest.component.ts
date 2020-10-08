@@ -14,6 +14,16 @@ export class MappertestComponent implements OnInit {
   tableData: any = [];
   showEditTable: boolean = false;
   editRowID: any = '';
+  showRecord: any;
+  isHeaderInValid = false;
+
+  headerModel = {
+    apiName: "",
+    apiUrl: "",
+    apiHeader: "",
+    reqType: ""
+  }
+
   constructor(private router: Router,  private utilityService: UtilityService, private csvService: CsvService) { 
     
   }
@@ -22,6 +32,7 @@ export class MappertestComponent implements OnInit {
 
     this.getTableData();
     this.modifyTableData();
+    this.showRecord=false;
   }
 
   getTableData(){
@@ -37,10 +48,7 @@ export class MappertestComponent implements OnInit {
   }
 
   modifyTableData(){
-
-    
     this.tableData = JSON.parse(localStorage.getItem('tableData'));
-
   }
 
   public saveData(){
@@ -66,8 +74,30 @@ export class MappertestComponent implements OnInit {
     this.utilityService.showLoader();
     setTimeout(()=> this.utilityService.hideLoader() ,1500)
   }
+
   public download(){
     this.csvService.downloadFile(this.tableData, 'jsontocsv');
+  }
+
+  public showRecordData(){
+
+    if(this.headerModel.apiName != "" && this.headerModel.apiUrl != "" && this.headerModel.apiHeader != "" ){
+      this.showRecord = true;
+      this.isHeaderInValid = false;
+    }
+    else{
+      this.isHeaderInValid = true;
+    }
+    
+  }
+
+  public hideRecordData(){
+    this.headerModel.apiName = null;
+    this.headerModel.apiUrl = null
+    this.headerModel.apiHeader = null
+
+    this.showRecord = false;
+    this.isHeaderInValid = false;
   }
 
 }
