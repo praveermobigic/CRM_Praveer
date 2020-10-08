@@ -22,6 +22,7 @@ import { AccountNewComponent } from './account-new/account-new.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { ReportComponent } from './reports/report/report.component';
 import { AcDetailsComponent } from './dashboard-all-conversation/ac-details/ac-details.component';
+import { MappertestComponent } from './mappertest/mappertest.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'account/:id', component: AccountDetailsComponent, canActivate: [AuthGuard] },
   { path: 'reports', component: ReportComponent, canActivate: [AuthGuard] },
   { path: 'ac-details', component: AcDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'mappertest', component: MappertestComponent, canActivate: [AuthGuard] },
 
 ];
 

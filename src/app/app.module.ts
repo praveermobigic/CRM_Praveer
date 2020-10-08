@@ -46,6 +46,7 @@ import { ReportComponent } from './reports/report/report.component';
 import { ReportHeadComponent } from './reports/report-head/report-head.component';
 import { ReportDetailComponent } from './reports/report-detail/report-detail.component';
 import { AcDetailsComponent } from './dashboard-all-conversation/ac-details/ac-details.component';
+import { MappertestComponent } from './mappertest/mappertest.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -84,7 +85,8 @@ export function tokenGetter() {
     ReportComponent,
     ReportHeadComponent,
     ReportDetailComponent,
-    AcDetailsComponent
+    AcDetailsComponent,
+    MappertestComponent
   ],
   imports: [
     BrowserModule,
