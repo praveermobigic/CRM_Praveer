@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { UtilityService } from '../utility.service';
 import { delay } from 'rxjs/operators';
+import { CsvService } from './csv.service';
 
 @Component({
   selector: 'app-mappertest',
@@ -13,7 +14,7 @@ export class MappertestComponent implements OnInit {
   tableData: any = [];
   showEditTable: boolean = false;
   editRowID: any = '';
-  constructor(private router: Router,  private utilityService: UtilityService) { 
+  constructor(private router: Router,  private utilityService: UtilityService, private csvService: CsvService) { 
     
   }
 
@@ -64,6 +65,9 @@ export class MappertestComponent implements OnInit {
     localStorage.setItem('tableData', JSON.stringify(this.tableData));
     this.utilityService.showLoader();
     setTimeout(()=> this.utilityService.hideLoader() ,1500)
+  }
+  public download(){
+    this.csvService.downloadFile(this.tableData, 'jsontocsv');
   }
 
 }
